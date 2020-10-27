@@ -11,4 +11,18 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get "/programs"
+
+  get "/programs/new"
+
+  post "/programs"
+
+  get "/programs/:id"
+
+  get "/programs/edit/:id" #or get "/programs/:id/edit" ????
+
+  patch #edit
+
+  delete #delete
+
 end
