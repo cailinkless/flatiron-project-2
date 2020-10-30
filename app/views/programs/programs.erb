@@ -1,13 +1,8 @@
-<!-- "Your Program Drafts" -->
+<h1>Your Program Drafts</h1>
 
-<!-- "Show 1" -->
-<!-- "Show 1 Dates" -->
-<!-- "See Program Draft" -->
-<!-- "Delete Draft" -->
-
-<!-- "Show 2" -->
-<!-- "Show 2 Dates" -->
-<!-- "See Program Draft" -->
-<!-- "Delete Draft" -->
-
-<!-- Etc. -->
+<% Program.each_with_index do |program, i|%>
+    <h2><%= (i + 1) %>. <%= program.title %></h2>
+    <h3><%= program.dates %></h3>
+    <p>"See Program Draft" Button</p>
+    <p>"Delete Draft" Button</p>
+<% end%>
