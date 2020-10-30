@@ -12,10 +12,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/programs" do
+    @programs = Program.all
     erb :programs
   end
 
-  get "/programs/new"
+  get "/programs/new" do
     erb :new
   end
 

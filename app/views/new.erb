@@ -2,26 +2,26 @@
 
 <form method="POST" action="/programs">
 
-<label for="title">Show Title:</label>
-<input type="text" name="title">
+<label for="program[title]">Show Title:</label>
+<input type="text" name="program[title]">
 
-<label for="playwright">Playwright:</label>
-<input type="text" name="playwright">
+<label for="program[playwright]">Playwright:</label>
+<input type="text" name="program[playwright]">
 
-<label for="dates">Show Dates:</label>
-<input type="text" name="dates">
+<label for="program[dates]">Show Dates:</label>
+<input type="text" name="program[dates]">
 
-<label for="company">Production Company:</label>
-<input type="text" name="company">
+<label for="program[company]">Production Company:</label>
+<input type="text" name="program[company]">
 
-<label for="director">Director:</label>
-<input type="text" name="director">
+<label for="program[director]">Director:</label>
+<input type="text" name="program[director]">
 
 <!-- Way to specify the number of cast members? -->
 
-<label for="actor">Actor:</label>
-<input type="text" name="actor">
-<label for="role">Role:</label>
-<input type="text" name="role">
+<label for="program[performers][][name]">Performer:</label>
+<input type="text" name="program[performers][][name]">
+<label for="program[performers][][role]">Role:</label>
+<input type="text" name="program[performers][][role]">
 
 </form>
