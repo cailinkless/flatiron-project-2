@@ -1,26 +1,34 @@
 #does this need a bunch of the stuff that was prepopulated in Application_Controller to run???
-
-#require './config/environment'
-
-#class ProgramsController < Sinatra::Base
+class ProgramsController < ApplicationController
   
-  # get "/programs" do
-  #   @programs = Program.all
-  #   erb :programs
-  # end
+  get "/programs" do
+    @programs = Program.all
+    erb :'programs/programs'
+  end
 
-  # get "/programs/new" do
-  #   erb :new
-  # end
+   get "/programs/new" do
+     erb :'programs/new'
+   end
 
-  # post "/programs" do
-  # @program = Program.new(title: params[title:], playwright: params[playwright:], dates: params[dates:], company: params[company:], crew_members: params[crew_members:], performers: params[performers:])
-  # erb :show
-  # end
+  post "/programs" do
+  # binding.pry
+  @program = Program.create(
+    title: params[:title], 
+    playwright: params[:playwright], 
+    company: params[:company],
+    dates: params[:dates],
+    director: params[:director],
+    crew_members: params[:crew_members],
+    performers: params[:performers],
+    user_id: User.find(1).id)
+  erb :'programs/show'
+  # binding.pry
+  end
 
-  # get "/programs/:id" do
-  #   #code
-  # end
+  get "/programs/:id" do
+    @program = Program.find(params[:id])
+    erb :'programs/show'
+  end
 
   # get "/programs/edit/:id" do #or get ***"/programs/:id/edit"*** ????
   # # code
@@ -34,4 +42,4 @@
   #   #code
   # end
 
-#end
+end

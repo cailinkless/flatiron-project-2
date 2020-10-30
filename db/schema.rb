@@ -11,14 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1) do
+ActiveRecord::Schema.define(version: 5) do
 
   create_table "programs", force: :cascade do |t|
-    t.string "title"
-    t.string "playwright"
-    t.string "dates"
-    t.string "company"
-    t.string "director"
+    t.string  "title"
+    t.string  "playwright"
+    t.string  "dates"
+    t.string  "company"
+    t.string  "director"
+    t.string  "performers"
+    t.string  "crew_members"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
   end
 
 end

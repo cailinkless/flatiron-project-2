@@ -1,6 +1,6 @@
 <h1>Your Program Drafts</h1>
 
-<% Program.each_with_index do |program, i|%>
+<% @programs.each_with_index do |program, i|%>
     <h2><%= (i + 1) %>. <%= program.title %></h2>
     <h3><%= program.dates %></h3>
     <p>"See Program Draft" Button</p>
