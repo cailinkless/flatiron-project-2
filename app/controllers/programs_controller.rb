@@ -2,22 +2,12 @@
 class ProgramsController < ApplicationController
   
   get "/programs" do
-    if User.is_logged_in?(session)
-      @programs = Program.all #make this so that it's only the programs of this user
-      erb :'programs/programs'
-    else
-      erb :error
-    end
+    @programs = Program.all #make this so that it's only the programs of this user
+    erb :'programs/programs'
   end
 
   get "/programs/new" do
-    binding.pry
-    if User.is_logged_in?(session)
-      #code to set @user on the page as the current user???
-      erb :'programs/new'
-    else
-      erb :error
-    end
+    erb :'programs/new'
   end
 
   # get "/account" do
