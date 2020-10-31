@@ -6,9 +6,9 @@ class ProgramsController < ApplicationController
     erb :'programs/programs'
   end
 
-   get "/programs/new" do
-     erb :'programs/new'
-   end
+  get "/programs/new" do
+    erb :'programs/new'
+  end
 
   post "/programs" do
   # binding.pry
