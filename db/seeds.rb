@@ -1,1 +1,1 @@
-julie = User.create(user_name: "Julie")
+julie = User.create(user_name: "Julie", password: "julierules")
