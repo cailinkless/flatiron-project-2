@@ -5,9 +5,11 @@ class UsersController < ApplicationController
     end
 
     get "/account" do
-        # binding.pry
-        @user = User.find(session[:user_id])
-        erb :'users/account'
+        if User.is_logged_in?(session)
+            erb :'users/account'
+        else
+            erb :error
+        end
     end
 
     post "/signup" do
