@@ -1,26 +1,38 @@
-<h2><%= @program.company %> presents</h2>
+<% if User.is_logged_in?(session) %>
 
-<h1><%= @program.title %></h1>
+  <h2><%= @program.company %> presents</h2>
 
-<h2>by <%= @program.playwright %></h2>
+  <h1><%= @program.title %></h1>
 
-<h3><%= @program.dates %></h3>
+  <h2>by <%= @program.playwright %></h2>
 
-<h3>Directed by <%= @program.director %></h3>
+  <h3><%= @program.dates %></h3>
 
-<h3>Credits</h3>
+  <h3>Directed by <%= @program.director %></h3>
 
-<h4>Crew:</h4>
-<p><%= @program.crew_members %></p>
+  <h3>Credits</h3>
 
-<h4>Cast:</h4>
-<p><%= @program.performers %></p>
+  <h4>Crew:</h4>
+  <p><%= @program.crew_members %></p>
 
-<h4>Enjoy the show!</h4>
+  <h4>Cast:</h4>
+  <p><%= @program.performers %></p>
 
-<p>"Edit Program" Button</p>
+  <h4>Enjoy the show!</h4>
+  <br>
+  <br>
+  <ul>
+    <li>SOMEDAY: "Publish Program" Button will go here.</li>
+    <li><a href="/programs/<%= @program.id %>/edit">Edit Program</a></li>
+  </ul>
 
-<form method="post" action="/programs/<%= @program.id %>">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete <%= @program.title %>">
-</form>
+  <form method="post" action="/programs/<%= @program.id %>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete <%= @program.title %>">
+  </form>
+
+  <a href="/programs">See All Programs</a>
+
+<% else %>
+  <p>You must <a href="/login">log in</a> to view a program draft.</p>
+<% end %>

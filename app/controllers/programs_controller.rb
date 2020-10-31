@@ -2,11 +2,13 @@
 class ProgramsController < ApplicationController
   
   get "/programs" do
-    @programs = Program.all #make this so that it's only the programs of this user
+    @current_user = User.current_user(session)
+    @programs = Program.where(["user_id = ?", "#{@current_user.id}"])
     erb :'programs/programs'
   end
 
   get "/programs/new" do
+    # binding.pry
     erb :'programs/new'
   end
 
@@ -20,6 +22,7 @@ class ProgramsController < ApplicationController
 
   post "/programs" do
   # binding.pry
+  current_user = User.current_user(session)
   @program = Program.create(
     title: params[:title], 
     playwright: params[:playwright], 
@@ -28,7 +31,7 @@ class ProgramsController < ApplicationController
     director: params[:director],
     crew_members: params[:crew_members],
     performers: params[:performers],
-    user_id: User.find(1).id) #change this
+    user_id: User.find(current_user.id).id) #change this
   erb :'programs/show'
   # binding.pry
   end

@@ -1,7 +1,15 @@
-<h1>Hello, <%= @user.user_name %>!</h1>
+<% if User.is_logged_in?(session)%>
+    <% current_user = User.current_user(session)%>
+    <h1>Hello, <%= current_user.user_name %>!</h1>
 
-<a href="../programs">See your program drafts</a>
+    <a href="../programs">See your program drafts</a>
 
-<a href="../programs/new">Create new program draft</a>
+    <a href="../programs/new">Create new program draft</a>
 
-<a href="/logout">Log Out</a>
+    <a href="/logout">Log Out</a>
+
+<% else %>
+
+    <p>You must <a href="/login">log in</a> to view your account.</p>
+
+<% end %>

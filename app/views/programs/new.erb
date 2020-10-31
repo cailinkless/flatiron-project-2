@@ -1,28 +1,34 @@
-<h1>Draft New Program</h1>
+<% if User.is_logged_in?(session) %>
 
-<form method="POST" action="/programs">
+    <h1>Draft New Program</h1>
 
-<label for="title">Show Title:</label>
-<input type="text" name="title">
+    <form method="POST" action="/programs">
 
-<label for="playwright">Playwright:</label>
-<input type="text" name="playwright">
+    <label for="title">Show Title:</label>
+    <input type="text" name="title">
 
-<label for="dates">Show Dates:</label>
-<input type="text" name="dates">
+    <label for="playwright">Playwright:</label>
+    <input type="text" name="playwright">
 
-<label for="company">Production Company:</label>
-<input type="text" name="company">
+    <label for="dates">Show Dates:</label>
+    <input type="text" name="dates">
 
-<label for="director">Director:</label>
-<input type="text" name="director">
+    <label for="company">Production Company:</label>
+    <input type="text" name="company">
 
-<label for="crew_members">Crew Credits:</label>
-<input type="text" name="crew_members">
+    <label for="director">Director:</label>
+    <input type="text" name="director">
 
-<label for="performers">Performer Credits:</label>
-<input type="text" name="performers">
+    <label for="crew_members">Crew Credits:</label>
+    <input type="text" name="crew_members">
 
-<input type="submit" value="Submit Draft">
+    <label for="performers">Performer Credits:</label>
+    <input type="text" name="performers">
 
-</form>
+    <input type="submit" value="Submit Draft">
+
+    </form>
+
+<% else %>
+    <p>You must <a href="/login">log in</a> to create a program.<p>
+<% end %>

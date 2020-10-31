@@ -1,8 +1,18 @@
-<h1>Your Program Drafts</h1>
+<% if User.is_logged_in?(session)%>
 
-<% @programs.each_with_index do |program, i|%>
-    <h2><%= (i + 1) %>. <%= program.title %></h2>
-    <h3><%= program.dates %></h3>
-    <p>"See Program Draft" Button</p>
-    <p>"Delete Draft" Button</p>
-<% end%>
+    <h1>Your Program Drafts</h1>
+
+    <% @programs.each_with_index do |program, i|%>
+        <h2><%= (i + 1) %>. <%= program.title %></h2>
+        <h3><%= program.dates %></h3>
+        <a href="/programs/<%= (i + 1) %>">See This Program Draft</a>
+    <% end %>
+
+    <ul>
+        <li><a href="/account">Back to my account</a></li>
+        <li><a href="/logout">Log Out</a></li>
+    </ul>
+
+<% else %>
+    <p>You must <a href="/login">log in</a> to view your programs.<p>
+<% end %>

@@ -1,29 +1,35 @@
-<h1>Edit Program</h1>
+<% if User.is_logged_in?(session) %>
 
-<form  method="post" action="/programs/<%= @program.id %>">
-<input id="hidden" type="hidden" name="_method" value="patch">
+    <h1>Edit Program</h1>
 
-<label for="title">Show Title:</label>
-<input type="text" name="title" value="<%= @program.title %>">
+    <form  method="post" action="/programs/<%= @program.id %>">
+    <input id="hidden" type="hidden" name="_method" value="patch">
 
-<label for="playwright">Playwright:</label>
-<input type="text" name="playwright" value="<%= @program.playwright %>">
+    <label for="title">Show Title:</label>
+    <input type="text" name="title" value="<%= @program.title %>">
 
-<label for="dates">Show Dates:</label>
-<input type="text" name="dates" value="<%= @program.dates %>">
+    <label for="playwright">Playwright:</label>
+    <input type="text" name="playwright" value="<%= @program.playwright %>">
 
-<label for="company">Production Company:</label>
-<input type="text" name="company" value="<%= @program.company %>">
+    <label for="dates">Show Dates:</label>
+    <input type="text" name="dates" value="<%= @program.dates %>">
 
-<label for="director">Director:</label>
-<input type="text" name="director" value="<%= @program.director %>">
+    <label for="company">Production Company:</label>
+    <input type="text" name="company" value="<%= @program.company %>">
 
-<label for="crew_members">Crew Credits:</label>
-<input type="text" name="crew_members" value="<%= @program.crew_members %>">
+    <label for="director">Director:</label>
+    <input type="text" name="director" value="<%= @program.director %>">
 
-<label for="performers">Performer Credits:</label>
-<input type="text" name="performers" value="<%= @program.performers %>">
+    <label for="crew_members">Crew Credits:</label>
+    <input type="text" name="crew_members" value="<%= @program.crew_members %>">
 
-<input type="submit" value="Submit Edits">
+    <label for="performers">Performer Credits:</label> 
+    <input type="text" name="performers" value="<%= @program.performers %>">
 
-</form>
+    <input type="submit" value="Submit Edits">
+
+    </form>
+
+<% else %>
+    <p>You must <a href="/login">log in</a> to edit a program.<p>
+<% end %>
