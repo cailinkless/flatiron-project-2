@@ -1,34 +1,29 @@
 <h1>Edit Program</h1>
 
-<!-- CHANGE TO PATCH METHOD!!! -->
-<form method="POST" action="/programs">
+<form  method="post" action="/programs/<%= @program.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
 
 <label for="title">Show Title:</label>
-<input type="text" name="title">
-<!-- Prepopulate with their original input -->
+<input type="text" name="title" value="<%= @program.title %>">
 
 <label for="playwright">Playwright:</label>
-<input type="text" name="playwright">
-<!-- Prepopulate with their original input -->
+<input type="text" name="playwright" value="<%= @program.playwright %>">
 
 <label for="dates">Show Dates:</label>
-<input type="text" name="dates">
-<!-- Prepopulate with their original input -->
+<input type="text" name="dates" value="<%= @program.dates %>">
 
 <label for="company">Production Company:</label>
-<input type="text" name="company">
-<!-- Prepopulate with their original input -->
+<input type="text" name="company" value="<%= @program.company %>">
 
 <label for="director">Director:</label>
-<input type="text" name="director">
-<!-- Prepopulate with their original input -->
+<input type="text" name="director" value="<%= @program.director %>">
 
 <label for="crew_members">Crew Credits:</label>
-<input type="text" name="crew_members">
-<!-- Prepopulate with their original input -->
+<input type="text" name="crew_members" value="<%= @program.crew_members %>">
 
 <label for="performers">Performer Credits:</label>
-<input type="text" name="performers">
-<!-- Prepopulate with their original input -->
+<input type="text" name="performers" value="<%= @program.performers %>">
+
+<input type="submit" value="Submit Edits">
 
 </form>

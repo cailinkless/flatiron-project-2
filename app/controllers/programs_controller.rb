@@ -30,13 +30,22 @@ class ProgramsController < ApplicationController
     erb :'programs/show'
   end
 
-  # get "/programs/edit/:id" do #or get ***"/programs/:id/edit"*** ????
-  # # code
-  # end
+  get "/programs/:id/edit" do
+    @program = Program.find(params[:id])
+    erb :'programs/edit'
+  end
 
-  # patch do #edit
-  #   #code
-  # end
+  patch "/programs/:id" do 
+    @program = Program.find(params[:id])
+    @program.update(title: params[:title]) 
+    @program.update(playwright: params[:playwright])
+    @program.update(company: params[:company])
+    @program.update(dates: params[:dates])
+    @program.update(director: params[:director])
+    @program.update(crew_members: params[:crew_members])
+    @program.update(performers: params[:performers])
+    redirect to "/programs/#{params[:id]}"
+  end
 
   # delete do #delete
   #   #code
