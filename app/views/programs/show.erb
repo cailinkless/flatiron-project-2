@@ -19,3 +19,8 @@
 <h4>Enjoy the show!</h4>
 
 <p>"Edit Program" Button</p>
+
+<form method="post" action="/programs/<%= @program.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete <%= @program.title %>">
+</form>

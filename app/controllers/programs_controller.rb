@@ -47,8 +47,11 @@ class ProgramsController < ApplicationController
     redirect to "/programs/#{params[:id]}"
   end
 
-  # delete do #delete
-  #   #code
-  # end
+  delete "/programs/:id" do
+    # binding.pry
+    ex_program = Program.find(params[:id])
+    ex_program.destroy
+    redirect to "/programs"
+  end
 
 end
