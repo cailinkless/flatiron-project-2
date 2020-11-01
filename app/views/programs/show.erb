@@ -1,4 +1,5 @@
-<% if User.is_logged_in?(session) %>
+<% if User.is_logged_in?(session) && User.current_user(session).id == @program.user_id %>
+<% binding.pry %>
 
   <h2><%= @program.company %> presents</h2>
 
@@ -34,5 +35,5 @@
   <a href="/programs">See All Programs</a>
 
 <% else %>
-  <p>You must <a href="/login">log in</a> to view a program draft.</p>
+  <p>Program drafts can only be viewed by their creator. Are you the owner of this draft? <a href="/login">Log in</a> here!</p>
 <% end %>

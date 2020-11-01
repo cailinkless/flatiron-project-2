@@ -5,7 +5,9 @@
     <% @programs.each_with_index do |program, i|%>
         <h2><%= (i + 1) %>. <%= program.title %></h2>
         <h3><%= program.dates %></h3>
-        <a href="/programs/<%= (i + 1) %>">See This Program Draft</a>
+        <a href="/programs/<%= program.id %>">See This Program Draft</a>
+        <br>
+        <br>
     <% end %>
 
     <ul>
