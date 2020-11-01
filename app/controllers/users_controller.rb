@@ -8,6 +8,7 @@ class UsersController < ApplicationController
         if User.is_logged_in?(session)
             erb :'users/account'
         else
+            @error = "You must be logged in to view this account."
             erb :error
         end
     end
@@ -20,12 +21,15 @@ class UsersController < ApplicationController
                     session[:user_id] = @user.id
                     erb :'users/account'
                 else
+                    @error = "It looks like something went wrong! Please try to sign up again."
                     erb :error
                 end
             else
+                @error = "This user name is already taken! Please try again."
                 erb :error
             end
         else
+            @error = "User name must not be empty!"
             erb :error
         end
     end
@@ -40,6 +44,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             erb :'users/account'
         else
+            @error = "It looks like you don't have an account yet!</a>"
             erb :error
         end
     end
