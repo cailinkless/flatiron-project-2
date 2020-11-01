@@ -1,5 +1,4 @@
 <% if User.is_logged_in?(session) && User.current_user(session).id == @program.user_id %>
-<% binding.pry %>
 
   <h2><%= @program.company %> presents</h2>
 

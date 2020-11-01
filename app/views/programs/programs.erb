@@ -1,6 +1,6 @@
 <% if User.is_logged_in?(session)%>
 
-    <h1>Your Program Drafts</h1>
+    <h1><%= User.current_user(session).user_name %>'s Program Drafts</h1>
 
     <% @programs.each_with_index do |program, i|%>
         <h2><%= (i + 1) %>. <%= program.title %></h2>

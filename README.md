@@ -6,7 +6,15 @@ The initial screen invites users to sign up or log in with a user name and passw
 
 1.) Program List
 
-  Displays a list of programs that the user has created. In this view only the title and show dates are displayed, with an option to view the full program. PROBLEM!
+  Displays a list of programs that the user has created. In this view only the title and show dates are displayed, with an option to view the full program. Options are also provided to go back to the main account page or log out.
+
+  Viewing a program shows a formatted version of the show information provided when the draft was created. Below the program draft are options to:
+
+    1.) Edit the program (which brings the user to a similar screen to the initial one for creating the draft, but with form fields pre-populated with the original information. The user can change as many or as few of the fields as they choose.)
+
+    2.) Delete the program (returns the user to their full program list)
+
+    3.) Go back to their full program list.
 
 2.) Draft program
 
@@ -18,11 +26,11 @@ The initial screen invites users to sign up or log in with a user name and passw
 
 ## Installation
 
-You are welcome to fork and clone your own copy of the Finder to tinker with, or go to the 'Code' menu and choose 'Download ZIP'.
+Fork this repo and download a clone-- you can run the app on your local server.
 
 ## Usage
 
-Input ruby bin/makeups in the terminal while the flatiron-project-1 directory is open.
+Navigate to the program folder in your terminal and run 'shotgun' - then pull up your local server in your preferred browser.
 
 ## License
 
