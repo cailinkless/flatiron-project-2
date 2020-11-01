@@ -31,7 +31,10 @@ class ProgramsController < ApplicationController
     director: params[:director],
     crew_members: params[:crew_members],
     performers: params[:performers],
-    user_id: User.find(current_user.id).id) #change this
+    user_id: User.find(current_user.id).id) 
+  if @program.title == ""
+    @program.update(title: "Untitled Program")
+  end
   erb :'programs/show'
   # binding.pry
   end

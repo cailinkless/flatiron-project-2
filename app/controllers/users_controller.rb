@@ -13,10 +13,18 @@ class UsersController < ApplicationController
     end
 
     post "/signup" do
-        @user = User.create(user_name: params[:user_name], password: params[:password])
-        if @user.save #&& @user.user_name != "" && @user.password !=""
-            session[:user_id] = @user.id
-            erb :'users/account'
+        if params[:user_name] != ""
+            unless User.any?{|user| user.user_name == params[:user_name]}
+                @user = User.create(user_name: params[:user_name], password: params[:password])
+                if @user.save #&& @user.user_name != "" && @user.password !=""
+                    session[:user_id] = @user.id
+                    erb :'users/account'
+                else
+                    erb :error
+                end
+            else
+                erb :error
+            end
         else
             erb :error
         end
