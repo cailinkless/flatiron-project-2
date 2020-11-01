@@ -8,20 +8,10 @@ class ProgramsController < ApplicationController
   end
 
   get "/programs/new" do
-    # binding.pry
     erb :'programs/new'
   end
 
-  # get "/account" do
-  #   if User.is_logged_in?(session)
-  #       erb :'users/account'
-  #   else
-  #       erb :error
-  #   end
-  # end
-
   post "/programs" do
-  # binding.pry
   current_user = User.current_user(session)
   @program = Program.create(
     title: params[:title], 
@@ -36,7 +26,6 @@ class ProgramsController < ApplicationController
     @program.update(title: "Untitled Program")
   end
   erb :'programs/show'
-  # binding.pry
   end
 
   get "/programs/:id" do
